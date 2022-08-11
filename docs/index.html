@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- other scripts -->
+    <script src="./js/index_bundle.js"></script>
+
+    <style>
+        span.input-group-text {
+            min-width: 120px;
+        }
+
+    </style>
+
+    <title>pachislo</title>
+</head>
+<body>
+    <div id="root" class="">
+        <div class="container px-3 py-5">
+            <h1 class="mb-4">pachislo</h1>
+            <div id="user-input" class="w-50">
+                <div id="model-select">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">機種</span>
+                        <select class="form-select">
+                            <option value="アイムジャグラー" selected>アイムジャグラー</option>
+                            <option value="マイジャグラー">マイジャグラー</option>
+                            <option value="ファンキージャグラー">ファンキージャグラー</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="practical-value">
+                    <div id="practical-value-0">
+                        <div id="input-data-n-0" class="input-group">
+                            <span class="input-group-text">試行回数-0</span>
+                            <input type="text" class="form-control" oninput="nOnInputHandler(this, 0)">
+                        </div>
+                        <div id="input-data-x-0">
+                            <div id="input-data-x-0-0" class="input-group">
+                                <span class="input-group-text">判別要素-0-0</span>
+                                <input type="text" class="form-control" oninput="xOnInputHandler(this, 0, 0)">
+                            </div>
+                            <div id="input-data-x-0-1" class="input-group">
+                                <span class="input-group-text">判別要素-0-1</span>
+                                <input type="text" class="form-control" oninput="xOnInputHandler(this, 0, 1)">
+                            </div>
+                            <div id="input-data-x-0-2" class="input-group">
+                                <span class="input-group-text">判別要素-0-2</span>
+                                <input type="text" class="form-control" oninput="xOnInputHandler(this, 0, 2)">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="practical-value-1">
+                        <div id="input-data-n-1" class="input-group">
+                            <span class="input-group-text">試行回数-1</span>
+                            <input type="text" class="form-control" oninput="nOnInputHandler(this, 0)">
+                        </div>
+                        <div id="input-data-x-1">
+                            <div id="input-data-x-1-0" class="input-group">
+                                <span class="input-group-text">判別要素-1-0</span>
+                                <input type="text" class="form-control" oninput="xOnInputHandler(this, 1, 0)">
+                            </div>
+                            <div id="input-data-x-1-1" class="input-group">
+                                <span class="input-group-text">判別要素-1-1</span>
+                                <input type="text" class="form-control" oninput="xOnInputHandler(this, 1, 1)">
+                            </div>
+                            <div id="input-data-x-1-2" class="input-group">
+                                <span class="input-group-text">判別要素-1-2</span>
+                                <input type="text" class="form-control" oninput="xOnInputHandler(this, 1, 2)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="estimate-button">
+                    <div class="input-group">
+                        <button class="btn btn-primary">判別実行</button>
+                    </div>
+                </div>
+            </div>
+            <div id="estimated-result" class="w-50">
+                <div class="estimated-result-head">判別結果</div>
+                <div class="estimated-result-main"></div>
+                <div class="estimated-result-main"></div>
+                <div class="estimated-result-main"></div>
+                <div class="estimated-result-main"></div>
+                <div class="estimated-result-main"></div>
+                <div class="estimated-result-main"></div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
