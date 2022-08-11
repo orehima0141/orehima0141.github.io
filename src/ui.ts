@@ -1,7 +1,8 @@
 import { SlotModel, Setting, Mode, UserInput, } from './type';
-import { slotModelDataSources, userInputStr } from './const'
+import { slotModelDataSources, userInputStr, zero } from './const'
 import util from './util';
 import { BigNumber } from 'mathjs';
+import * as math from 'mathjs';
 
 const ui = {
     /* HTML要素作成（イベント発生時に呼び出す想定） */
@@ -45,6 +46,7 @@ const ui = {
         const pvByMode = document.createElement('div');
         pvByMode.id = `practical-value-${midx}`;
         pvByMode.classList.add('practical-value-by-mode');
+        pvByMode.classList.add('mb-3');
 
         const firstChild = document.createElement('div');
         const firstChildSpan = document.createElement('span');
@@ -58,6 +60,14 @@ const ui = {
         return pvByMode;
     },
     inputDataN: function (selectedSlotModel: SlotModel, midx: number) {
+        const igAndSpacer = document.createElement('div');
+        igAndSpacer.id = `input-data-n-${midx}`;
+        igAndSpacer.classList.add('row');
+        igAndSpacer.classList.add('align-items-center');
+
+        const igWrapper = document.createElement('div');
+        igWrapper.classList.add('col-8');
+
         const inputGroup = document.createElement('div');
         inputGroup.id = `input-data-n-${midx}`;
         inputGroup.classList.add('input-group');
@@ -73,15 +83,32 @@ const ui = {
         //input.addEventListener('input', function () { ui.nOnInputHandler(this, midx) });
         inputGroup.appendChild(input);
 
-        return inputGroup;
+        igWrapper.appendChild(inputGroup);
+
+        igAndSpacer.appendChild(igWrapper)
+
+        const spacer = document.createElement('div');
+        spacer.classList.add('col-4');
+
+        igAndSpacer.appendChild(spacer);
+
+        return igAndSpacer;
     },
     inputDataX: function (selectedSlotModel: SlotModel, midx: number) {
         const parent = document.createElement('div');
         parent.id = `nput-data-x-${midx}`;
 
         for (let eidx = 0; eidx < selectedSlotModel.elementNames[midx].length; eidx++) {
+            const igAndFrac = document.createElement('div');
+            igAndFrac.id = `input-data-x-${midx}-${eidx}`;
+            igAndFrac.classList.add('row');
+            igAndFrac.classList.add('align-items-center');
+
+            const igWrapper = document.createElement('div');
+            igWrapper.classList.add('col-8');
+
             const inputGroup = document.createElement('div');
-            inputGroup.id = `input-data-x-${midx}-${eidx}`;
+            //inputGroup.id = `input-data-x-${midx}-${eidx}`;
             inputGroup.classList.add('input-group');
 
             const span = document.createElement('span');
@@ -95,7 +122,20 @@ const ui = {
             //input.addEventListener('input', function () { ui.xOnInputHandler(this, midx, eidx) });
             inputGroup.appendChild(input);
 
-            parent.appendChild(inputGroup);
+            igWrapper.appendChild(inputGroup);
+
+            //parent.appendChild(inputGroup);
+            igAndFrac.appendChild(igWrapper);
+
+            const frac = document.createElement('div');
+            frac.classList.add('fractional-prob');
+            frac.classList.add('col-4');
+            const spanFrac = document.createElement('span');
+            frac.appendChild(spanFrac);
+
+            igAndFrac.appendChild(frac);
+
+            parent.appendChild(igAndFrac);
         }
 
         return parent;
@@ -180,6 +220,16 @@ const ui = {
             for (let ei = 0; ei < selectedSlotModel.elementNames[mi].length; ei++) {
                 const x = (document.querySelector(`#input-data-x-${mi}-${ei} input`) as HTMLInputElement).value;
                 userInputStr.x[mi].push(x);
+            }
+        }
+
+        for (let mi = 0; mi < selectedSlotModel.modeNames.length; mi++) {
+            const n = userInputStr.n[mi] ? math.bignumber(userInputStr.n[mi]) : zero;
+            for (let ei = 0; ei < selectedSlotModel.elementNames[mi].length; ei++) {
+                const x = userInputStr.x[mi][ei] ? math.bignumber(userInputStr.x[mi][ei]) : zero;
+                const prob = math.divide(x, n) as BigNumber;
+                const fracSpan = document.querySelector(`#input-data-x-${mi}-${ei} .fractional-prob span`) as HTMLSpanElement;
+                fracSpan.innerHTML = util.fractionalStr(prob);
             }
         }
 
