@@ -44,6 +44,7 @@ const util = {
     },
 
     fractionalStr: function (p: number | BigNumber, digit?: number) {
+        if (math.isZero(p)) return '0';
         if (!digit) digit = 3;
         let denominator = math.divide(one, p) as BigNumber;
         denominator = math.round(denominator, digit);
