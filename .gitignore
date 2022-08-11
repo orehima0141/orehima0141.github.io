@@ -1,4 +1,3 @@
-/wip/
-/wip/*
-/node_modules/
-/node_modules/*
+wip
+node_modules
+dist
