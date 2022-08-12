@@ -1,6 +1,6 @@
 import { create, all, BigNumber, ConfigOptions } from 'mathjs';
 import { SlotModel, Setting, Mode, UserInput, } from './type';
-import { hundred, one, slotModelDataSources } from './const';
+import { hundred, one, slotModelDataSources, zero } from './const';
 import mystat from './mystat';
 
 const config: ConfigOptions = {
@@ -45,6 +45,7 @@ const util = {
 
     fractionalStr: function (p: number | BigNumber, digit?: number) {
         if (math.isZero(p)) return '0';
+        if (math.isNaN(p)) return '';
         if (!digit) digit = 3;
         let denominator = math.divide(one, p) as BigNumber;
         denominator = math.round(denominator, digit);
@@ -97,32 +98,19 @@ const util = {
         return filteredp;
     },
     lhRatio: function (userInput: UserInput) {
-        const slotModel = util.cloneSlotModel(
-            util.searchSlotModelByModelName(slotModelDataSources, userInput.modelName) as SlotModel
-        );
-
+        let lhTable: BigNumber[][] = util.lhTable(userInput);
         let lhRatio: BigNumber[] = [];
-        let lhTable: BigNumber[][] = [];
-        for (let si = 0; si < slotModel.settingNames.length; si++) {
-            let lhBySetting: BigNumber = one;
-            lhTable.push([]);
-            for (let mi = 0; mi < slotModel.modeNames.length; mi++) {
-                let includeFlags: boolean[] = util.createIncludeFlags(userInput.n[mi], userInput.x[mi]);
-                let n: BigNumber = math.bignumber(userInput.n[mi]);
-                let x: BigNumber[] = util.filterX(userInput.x[mi], includeFlags).map((e) => math.bignumber(e));
-                x.push(math.subtract(n, math.sum(x) as BigNumber));
-                let p: BigNumber[] = util.filterP(slotModel.table[si][mi], includeFlags).map((e) => math.bignumber(e));
-                p.push(math.subtract(one, math.sum(p) as BigNumber));
 
-                let lhByMode: BigNumber = one;
-                lhByMode = mystat.lhf(x, p);
-                lhTable[si].push(math.bignumber(lhByMode));
+        for (let si = 0; si < lhTable.length; si++) {
+            let lhBySetting = one;
+            for (let mi = 0; mi < lhTable[si].length; mi++) {
+                const lhByMode = lhTable[si][mi];
                 lhBySetting = math.multiply(lhBySetting, lhByMode) as BigNumber;
             }
             lhRatio.push(lhBySetting);
         }
 
-        userInput.w = Array<string>(slotModel.settingNames.length).fill('1');
+        userInput.w = Array<string>(lhTable.length).fill('1');
         let weight: BigNumber[] = userInput.w.map((e) => math.bignumber(e));
         lhRatio = util.weight(lhRatio, weight);
 
@@ -137,7 +125,34 @@ const util = {
 
         //return [lhRatio, lhTable];
         return lhRatio;
-    }
+    },
+    lhTable: function (userInput: UserInput) {
+        const slotModel = util.cloneSlotModel(
+            util.searchSlotModelByModelName(slotModelDataSources, userInput.modelName) as SlotModel
+        );
+
+        let lhTable: BigNumber[][] = [];
+        for (let si = 0; si < slotModel.settingNames.length; si++) {
+            lhTable.push([]);
+            for (let mi = 0; mi < slotModel.modeNames.length; mi++) {
+                let includeFlags: boolean[] = util.createIncludeFlags(userInput.n[mi], userInput.x[mi]);
+                let n: BigNumber = (userInput.n[mi] && userInput.n[mi] !== '') ? math.bignumber(userInput.n[mi]) : zero;
+                let x: BigNumber[] = util.filterX(userInput.x[mi], includeFlags).map((e) => math.bignumber(e));
+                x.push(math.subtract(n, math.sum(x) as BigNumber));
+                let p: BigNumber[] = util.filterP(slotModel.table[si][mi], includeFlags).map((e) => math.bignumber(e));
+                p.push(math.subtract(one, math.sum(p) as BigNumber));
+
+                let lhByMode: BigNumber = mystat.lhf(x, p);
+                lhTable[si].push(math.bignumber(lhByMode));
+
+                console.log(n);
+                console.log(x);
+                console.log(p);
+                console.log(lhByMode);
+            }
+        }
+        return lhTable;
+    },
 }
 
 export default util;
