@@ -219,5 +219,18 @@ export const slotModelDataSources: SlotModel[] = [
             ],
         ],
     },
-
+    {
+        modelName: 'いろはに愛姫（押し順青7のみ）',
+        settingNames: ['設定_左', '設定_右', '設定_中', '設定_6',],
+        modeNames: ['押し順青7（左1st）'],
+        elementNames: [
+            ['成功',],
+        ],
+        table: [
+            [[1 / 2,],],
+            [[1 / 4,],],
+            [[1 / 4,],],
+            [[1 / 3,],],
+        ],
+    },
 ];
