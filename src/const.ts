@@ -75,7 +75,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'アイムジャグラー',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -92,7 +93,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'マイジャグラー5',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -109,7 +111,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'マイジャグラー5（wip2023/02）',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '非重複チェリー', 'レアBIG', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -123,10 +126,29 @@ export const slotModelDataSources: SlotModel[] = [
         ],
     },
     {
+        modelName: 'マイジャグラー5（wip2023/02 レアBIGなしver）',
+        settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
+        modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
+            ['ぶどう', '非重複チェリー', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
+            ['BIG', 'REG',],
+        ],
+        table: [
+            [[1 / 5.90, 1 / 38.10, 1 / 372.36, 1 / 1024.00, 1 / 655.36, 1 / 1092.27], [1 / 273.07, 1 / 409.60]],
+            [[1 / 5.85, 1 / 38.10, 1 / 368.18, 1 / 1024.00, 1 / 595.78, 1 / 1092.27], [1 / 270.81, 1 / 385.51]],
+            [[1 / 5.80, 1 / 36.82, 1 / 360.09, 1 / 1024.00, 1 / 496.48, 1 / 1040.25], [1 / 266.41, 1 / 336.08]],
+            [[1 / 5.78, 1 / 35.62, 1 / 337.81, 1 / 1024.00, 1 / 404.54, 1 / 1024.00], [1 / 254.01, 1 / 289.98]],
+            [[1 / 5.76, 1 / 35.62, 1 / 315.08, 1 / 1008.25, 1 / 390.10, 1 / 862.32], [1 / 240.06, 1 / 268.59]],
+            [[1 / 5.66, 1 / 35.62, 1 / 309.13, 1 / 885.62, 1 / 327.68, 1 / 762.05], [1 / 229.15, 1 / 229.15]],
+        ],
+    },
+    {
         modelName: 'ファンキージャグラー2',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -143,7 +165,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'ファンキージャグラー2（wip2023/02）',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '非重複チェリー', 'レアBIG', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -157,10 +180,29 @@ export const slotModelDataSources: SlotModel[] = [
         ],
     },
     {
+        modelName: 'ファンキージャグラー2（wip2023/02 レアBIGなしver）',
+        settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
+        modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
+            ['ぶどう', '非重複チェリー', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
+            ['BIG', 'REG',],
+        ],
+        table: [
+            [[1 / 5.94, 1 / 35.62, 1 / 364.09, 1 / 992.97, 1 / 630.15, 1 / 1456.36], [1 / 266.41, 1 / 439.84]],
+            [[1 / 5.93, 1 / 35.62, 1 / 356.18, 1 / 949.80, 1 / 585.14, 1 / 1337.47], [1 / 259.04, 1 / 407.05]],
+            [[1 / 5.88, 1 / 35.62, 1 / 352.35, 1 / 936.23, 1 / 512.00, 1 / 1285.02], [1 / 256.00, 1 / 366.12]],
+            [[1 / 5.83, 1 / 35.62, 1 / 341.33, 1 / 923.04, 1 / 448.88, 1 / 1149.75], [1 / 249.19, 1 / 322.84]],
+            [[1 / 5.75, 1 / 35.62, 1 / 332.67, 1 / 862.32, 1 / 404.54, 1 / 1149.75], [1 / 240.06, 1 / 299.25]],
+            [[1 / 5.66, 1 / 35.62, 1 / 299.25, 1 / 829.57, 1 / 352.34, 1 / 1024.00], [1 / 219.92, 1 / 262.14]],
+        ],
+    },
+    {
         modelName: 'ハッピージャグラーV3（wip2023/02）',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）', 'チェリー重複当選率（試行回数=全チェリー出現回数）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数', '総チェリー'],
+        elementNamesByMode: [
             ['ぶどう', '非重複チェリー', '単独＆レアBIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
             ['重複チェリー'],
@@ -178,7 +220,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: '新ハナビ（RTリプレイ判別版）',
         settingNames: ['設定_1', '設定_2', '設定_5', '設定_6',],
         modeNames: ['通常時', '花火チャレンジ', '花火GAME', 'BIG中', 'REG中',],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', 'HC中ゲーム数', 'HG中ゲーム数', 'BIG中ゲーム数', 'REG中ゲーム数'],
+        elementNamesByMode: [
             ['風鈴A', '風鈴B', '氷A', '氷B', 'チェリーA1', 'チェリーA2', 'チェリーB', 'BIG中', 'REG中'],
             ['ハズレ', '通常リプレイ'],
             ['ハズレ', '通常リプレイ', 'RTリプレイ'],
@@ -220,7 +263,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: '新ハナビ（RT簡易版）',
         settingNames: ['設定_1', '設定_2', '設定_5', '設定_6',],
         modeNames: ['通常時', '花火チャレンジ', '花火GAME', 'BIG中', 'REG中',],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', 'HC中ゲーム数', 'HG中ゲーム数', 'BIG中ゲーム数', 'REG中ゲーム数'],
+        elementNamesByMode: [
             ['風鈴A', '風鈴B', '氷A', '氷B', 'チェリーA1', 'チェリーA2', 'チェリーB', 'BIG', 'REG'],
             ['ハズレ', '通常リプレイ'],
             ['ハズレ', 'リプレイ合計'],
@@ -262,7 +306,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'いろはに愛姫（押し順青7のみ）',
         settingNames: ['設定_左', '設定_中', '設定_右', '設定_6',],
         modeNames: ['押し順青7（左1st）', '押し順青7（中1st）', '押し順青7（右1st）'],
-        elementNames: [
+        denominatorNamesByMode: ['左1stチャレンジ回数', '中1stチャレンジ回数', '右1stチャレンジ回数'],
+        elementNamesByMode: [
             ['成功',], ['成功',], ['成功',],
         ],
         table: [

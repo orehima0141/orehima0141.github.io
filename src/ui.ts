@@ -74,7 +74,7 @@ const ui = {
 
         const span = document.createElement('span');
         span.classList.add('input-group-text');
-        span.textContent = '試行回数';
+        span.textContent = selectedSlotModel.denominatorNamesByMode[midx];
         inputGroup.appendChild(span);
 
         const input = document.createElement('input');
@@ -98,7 +98,7 @@ const ui = {
         const parent = document.createElement('div');
         parent.id = `nput-data-x-${midx}`;
 
-        for (let eidx = 0; eidx < selectedSlotModel.elementNames[midx].length; eidx++) {
+        for (let eidx = 0; eidx < selectedSlotModel.elementNamesByMode[midx].length; eidx++) {
             const igAndFrac = document.createElement('div');
             igAndFrac.id = `input-data-x-${midx}-${eidx}`;
             igAndFrac.classList.add('row');
@@ -113,7 +113,7 @@ const ui = {
 
             const span = document.createElement('span');
             span.classList.add('input-group-text');
-            span.textContent = selectedSlotModel.elementNames[midx][eidx];
+            span.textContent = selectedSlotModel.elementNamesByMode[midx][eidx];
             inputGroup.appendChild(span);
 
             const input = document.createElement('input');
@@ -217,7 +217,7 @@ const ui = {
         userInputStr.x = [];
         for (let mi = 0; mi < selectedSlotModel.modeNames.length; mi++) {
             userInputStr.x.push([]);
-            for (let ei = 0; ei < selectedSlotModel.elementNames[mi].length; ei++) {
+            for (let ei = 0; ei < selectedSlotModel.elementNamesByMode[mi].length; ei++) {
                 const x = (document.querySelector(`#input-data-x-${mi}-${ei} input`) as HTMLInputElement).value;
                 userInputStr.x[mi].push(x);
             }
@@ -225,7 +225,7 @@ const ui = {
 
         for (let mi = 0; mi < selectedSlotModel.modeNames.length; mi++) {
             const n = userInputStr.n[mi] ? math.bignumber(userInputStr.n[mi]) : zero;
-            for (let ei = 0; ei < selectedSlotModel.elementNames[mi].length; ei++) {
+            for (let ei = 0; ei < selectedSlotModel.elementNamesByMode[mi].length; ei++) {
                 const x = userInputStr.x[mi][ei] ? math.bignumber(userInputStr.x[mi][ei]) : zero;
                 const prob = math.divide(x, n) as BigNumber;
                 const fracSpan = document.querySelector(`#input-data-x-${mi}-${ei} .fractional-prob span`) as HTMLSpanElement;
