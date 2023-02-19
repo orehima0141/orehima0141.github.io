@@ -11,7 +11,8 @@ export type SlotModel = {
     modelName: string,
     settingNames: string[],
     modeNames: string[],
-    elementNames: string[][],
+    denominatorNamesByMode: string[],
+    elementNamesByMode: string[][],
     table: Setting[],
 };
 

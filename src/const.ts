@@ -75,7 +75,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'アイムジャグラー',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -92,7 +93,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'マイジャグラー5',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -109,7 +111,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'マイジャグラー5（wip2023/02）',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '非重複チェリー', 'レアBIG', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -126,7 +129,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'ファンキージャグラー2',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -143,7 +147,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'ファンキージャグラー2（wip2023/02）',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数'],
+        elementNamesByMode: [
             ['ぶどう', '非重複チェリー', 'レアBIG', '単独BIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
         ],
@@ -160,7 +165,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'ハッピージャグラーV3（wip2023/02）',
         settingNames: ['設定_1', '設定_2', '設定_3', '設定_4', '設定_5', '設定_6',],
         modeNames: ['通常時', 'ボーナス確率のみ（前任者実践値としても利用可）', 'チェリー重複当選率（試行回数=全チェリー出現回数）'],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', '総ゲーム数', '総チェリー'],
+        elementNamesByMode: [
             ['ぶどう', '非重複チェリー', '単独＆レアBIG', 'チェリーBIG', '単独REG', 'チェリーREG',],
             ['BIG', 'REG',],
             ['重複チェリー'],
@@ -178,7 +184,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: '新ハナビ（RTリプレイ判別版）',
         settingNames: ['設定_1', '設定_2', '設定_5', '設定_6',],
         modeNames: ['通常時', '花火チャレンジ', '花火GAME', 'BIG中', 'REG中',],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', 'HC中ゲーム数', 'HG中ゲーム数', 'BIG中ゲーム数', 'REG中ゲーム数'],
+        elementNamesByMode: [
             ['風鈴A', '風鈴B', '氷A', '氷B', 'チェリーA1', 'チェリーA2', 'チェリーB', 'BIG中', 'REG中'],
             ['ハズレ', '通常リプレイ'],
             ['ハズレ', '通常リプレイ', 'RTリプレイ'],
@@ -220,7 +227,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: '新ハナビ（RT簡易版）',
         settingNames: ['設定_1', '設定_2', '設定_5', '設定_6',],
         modeNames: ['通常時', '花火チャレンジ', '花火GAME', 'BIG中', 'REG中',],
-        elementNames: [
+        denominatorNamesByMode: ['総ゲーム数', 'HC中ゲーム数', 'HG中ゲーム数', 'BIG中ゲーム数', 'REG中ゲーム数'],
+        elementNamesByMode: [
             ['風鈴A', '風鈴B', '氷A', '氷B', 'チェリーA1', 'チェリーA2', 'チェリーB', 'BIG', 'REG'],
             ['ハズレ', '通常リプレイ'],
             ['ハズレ', 'リプレイ合計'],
@@ -262,7 +270,8 @@ export const slotModelDataSources: SlotModel[] = [
         modelName: 'いろはに愛姫（押し順青7のみ）',
         settingNames: ['設定_左', '設定_中', '設定_右', '設定_6',],
         modeNames: ['押し順青7（左1st）', '押し順青7（中1st）', '押し順青7（右1st）'],
-        elementNames: [
+        denominatorNamesByMode: ['左1stチャレンジ回数', '中1stチャレンジ回数', '右1stチャレンジ回数'],
+        elementNamesByMode: [
             ['成功',], ['成功',], ['成功',],
         ],
         table: [
